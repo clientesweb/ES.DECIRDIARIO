@@ -5,70 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES.DECIRDIARIO - Noticias y Comunicación</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: '#FFD700', // Amarillo
+                        brand: '#FFD700',
+                        'brand-dark': '#E6C200',
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         body {
             font-family: 'Roboto', sans-serif;
         }
+        .news-content {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="bg-white text-gray-800">
-    <header class="bg-brand p-4">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-2xl font-bold mb-4 md:mb-0">ES.DECIRDIARIO</h1>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:underline">Inicio</a></li>
-                    <li><a href="#" class="hover:underline">Noticias</a></li>
-                    <li><a href="#" class="hover:underline">Categorías</a></li>
-                    <li><a href="#" class="hover:underline">Contacto</a></li>
-                </ul>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Top Banner -->
+    <div class="bg-brand text-black py-2 text-center">
+        <p class="text-sm font-bold">¡Suscríbete ahora y obtén acceso premium por solo 1€ al mes!</p>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="ES.DECIRDIARIO Logo" class="w-12 h-12 mr-4">
+                <h1 class="text-3xl font-bold">ES.DECIRDIARIO</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-brand">Inicio</a>
+                <a href="#" class="hover:text-brand">Política</a>
+                <a href="#" class="hover:text-brand">Economía</a>
+                <a href="#" class="hover:text-brand">Tecnología</a>
+                <a href="#" class="hover:text-brand">Cultura</a>
+                <a href="#" class="hover:text-brand">Deportes</a>
             </nav>
+            <button class="md:hidden" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden bg-white shadow-md py-4">
+            <div class="container mx-auto px-4 flex flex-col space-y-4">
+                <a href="#" class="hover:text-brand">Inicio</a>
+                <a href="#" class="hover:text-brand">Política</a>
+                <a href="#" class="hover:text-brand">Economía</a>
+                <a href="#" class="hover:text-brand">Tecnología</a>
+                <a href="#" class="hover:text-brand">Cultura</a>
+                <a href="#" class="hover:text-brand">Deportes</a>
+            </div>
+        </nav>
     </header>
 
     <main class="container mx-auto mt-8 px-4">
-        <section id="busqueda" class="mb-8">
-            <input type="text" id="busqueda-input" placeholder="Buscar noticias..." class="w-full p-2 border border-gray-300 rounded">
-        </section>
-
-        <section id="categorias" class="mb-8">
-            <h2 class="text-3xl font-bold mb-6">Categorías</h2>
-            <div class="flex flex-wrap gap-4">
-                <button class="bg-brand px-4 py-2 rounded" data-categoria="todas">Todas</button>
-                <button class="bg-gray-200 px-4 py-2 rounded" data-categoria="politica">Política</button>
-                <button class="bg-gray-200 px-4 py-2 rounded" data-categoria="tecnologia">Tecnología</button>
-                <button class="bg-gray-200 px-4 py-2 rounded" data-categoria="cultura">Cultura</button>
-                <button class="bg-gray-200 px-4 py-2 rounded" data-categoria="deportes">Deportes</button>
+        <!-- Búsqueda y Categorías -->
+        <section class="mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <input type="text" id="busqueda-input" placeholder="Buscar noticias..." class="w-full md:w-1/2 p-2 border border-gray-300 rounded mb-4 md:mb-0">
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-brand px-4 py-2 rounded hover:bg-brand-dark transition" data-categoria="todas">Todas</button>
+                    <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="politica">Política</button>
+                    <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="economia">Economía</button>
+                    <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="tecnologia">Tecnología</button>
+                    <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="cultura">Cultura</button>
+                    <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="deportes">Deportes</button>
+                </div>
             </div>
         </section>
 
-        <section id="noticias-destacadas" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Noticias Destacadas</h2>
+        <!-- Noticias Destacadas -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Noticias Destacadas</h2>
             <div id="noticias-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Las noticias se cargarán aquí dinámicamente -->
             </div>
         </section>
 
-        <section id="paginacion" class="mb-12 flex justify-center">
-            <button id="anterior" class="bg-brand px-4 py-2 rounded mr-2">Anterior</button>
+        <!-- Paginación -->
+        <section class="mb-12 flex justify-center">
+            <button id="anterior" class="bg-brand px-4 py-2 rounded mr-2 hover:bg-brand-dark transition">Anterior</button>
             <span id="pagina-actual" class="px-4 py-2">Página 1</span>
-            <button id="siguiente" class="bg-brand px-4 py-2 rounded ml-2">Siguiente</button>
+            <button id="siguiente" class="bg-brand px-4 py-2 rounded ml-2 hover:bg-brand-dark transition">Siguiente</button>
         </section>
 
-        <section id="instagram-feed" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Síguenos en Instagram</h2>
+        <!-- Feed de Instagram -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Síguenos en Instagram</h2>
             <div id="instagram-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Las publicaciones de Instagram se cargarán aquí dinámicamente -->
             </div>
@@ -80,23 +114,37 @@
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">ES.DECIRDIARIO</h3>
-                    <p>Otra forma de hacer periodismo</p>
+                    <img src="https://via.placeholder.com/100x50.png?text=Logo" alt="ES.DECIRDIARIO Logo" class="mb-4">
+                    <p class="text-sm">Otra forma de hacer periodismo</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Secciones</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand">Política</a></li>
+                        <li><a href="#" class="hover:text-brand">Economía</a></li>
+                        <li><a href="#" class="hover:text-brand">Tecnología</a></li>
+                        <li><a href="#" class="hover:text-brand">Cultura</a></li>
+                        <li><a href="#" class="hover:text-brand">Deportes</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contacto</h4>
                     <p>Email: esdecirdiario@gmail.com</p>
+                    <p>Teléfono: +34 123 456 789</p>
+                    <p>Dirección: Calle Principal, 123, 28001 Madrid</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">Síguenos</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-brand">Facebook</a>
-                        <a href="#" class="hover:text-brand">Twitter</a>
-                        <a href="#" class="hover:text-brand">Instagram</a>
+                        <a href="#" class="text-2xl hover:text-brand"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-brand"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-brand"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-brand"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -106,19 +154,28 @@
         </div>
     </footer>
 
+    <!-- Modal para leer noticias completas -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
+            <p id="modal-content" class="mb-4"></p>
+            <button id="modal-close" class="bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition">Cerrar</button>
+        </div>
+    </div>
+
     <script>
         // Datos de ejemplo para noticias
         const noticias = [
-            { id: 1, titulo: "Última hora: Descubrimiento científico revolucionario", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+1" },
-            { id: 2, titulo: "Análisis: El impacto de la inteligencia artificial en la economía global", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+2" },
-            { id: 3, titulo: "Deportes: Récord mundial batido en los 100 metros lisos", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+3" },
-            { id: 4, titulo: "Nueva exposición de arte contemporáneo en el centro de la ciudad", categoria: "cultura", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+4" },
-            { id: 5, titulo: "Debate político sobre nuevas medidas económicas", categoria: "politica", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+5" },
-            { id: 6, titulo: "Avances en la lucha contra el cambio climático", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+6" },
-            { id: 7, titulo: "Estreno de película rompe récords de taquilla", categoria: "cultura", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+7" },
-            { id: 8, titulo: "Nuevo acuerdo comercial entre países vecinos", categoria: "politica", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+8" },
-            { id: 9, titulo: "Descubrimiento de nueva especie en el Amazonas", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+9" },
-            { id: 10, titulo: "Victoria sorpresa en el torneo de tenis", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+10" },
+            { id: 1, titulo: "Última hora: Descubrimiento científico revolucionario", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+1", contenido: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+            { id: 2, titulo: "Análisis: El impacto de la inteligencia artificial en la economía global", categoria: "economia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+2", contenido: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+            { id: 3, titulo: "Deportes: Récord mundial batido en los 100 metros lisos", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+3", contenido: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo." },
+            { id: 4, titulo: "Nueva exposición de arte contemporáneo en el centro de la ciudad", categoria: "cultura", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+4", contenido: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt." },
+            { id: 5, titulo: "Debate político sobre nuevas medidas económicas", categoria: "politica", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+5", contenido: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem." },
+            { id: 6, titulo: "Avances en la lucha contra el cambio climático", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+6", contenido: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur." },
+            { id: 7, titulo: "Estreno de película rompe récords de taquilla", categoria: "cultura", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+7", contenido: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident." },
+            { id: 8, titulo: "Nuevo acuerdo comercial entre países vecinos", categoria: "politica", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+8", contenido: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio." },
+            { id: 9, titulo: "Descubrimiento de nueva especie en el Amazonas", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+9", contenido: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus." },
+            { id: 10, titulo: "Victoria sorpresa en el torneo de tenis", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+10", contenido: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a  sapiente delectus." },
         ];
 
         // Datos de ejemplo para publicaciones de Instagram
@@ -150,12 +207,14 @@
 
             noticiasAMostrar.forEach(noticia => {
                 const noticiaElement = document.createElement('div');
-                noticiaElement.className = 'bg-white shadow-md rounded-lg overflow-hidden';
+                noticiaElement.className = 'bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105';
                 noticiaElement.innerHTML = `
                     <img src="${noticia.imagen}" alt="${noticia.titulo}" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="font-bold text-xl mb-2">${noticia.titulo}</h3>
-                        <p class="text-sm text-gray-600">${noticia.categoria}</p>
+                        <p class="text-sm text-gray-600 mb-2">${noticia.categoria}</p>
+                        <p class="text-sm text-gray-800 news-content">${noticia.contenido}</p>
+                        <button class="mt-4 bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition leer-mas" data-id="${noticia.id}">Leer más</button>
                     </div>
                 `;
                 container.appendChild(noticiaElement);
@@ -178,7 +237,7 @@
             container.innerHTML = '';
             instagramPosts.forEach(post => {
                 const postElement = document.createElement('div');
-                postElement.className = 'relative';
+                postElement.className = 'relative overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:scale-105';
                 postElement.innerHTML = `
                     <img src="${post.imagen}" alt="${post.caption}" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
@@ -189,17 +248,32 @@
             });
         }
 
+        // Función para abrir el modal con la noticia completa
+        function abrirModal(id) {
+            const noticia = noticias.find(n => n.id === id);
+            if (noticia) {
+                document.getElementById('modal-title').textContent = noticia.titulo;
+                document.getElementById('modal-content').textContent = noticia.contenido;
+                document.getElementById('modal').classList.remove('hidden');
+                document.getElementById('modal').classList.add('flex');
+            }
+        }
+
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
             cargarNoticias();
             cargarInstagramPosts();
 
             // Botones de categoría
-            const botonesCategorias = document.querySelectorAll('#categorias button');
+            const botonesCategorias = document.querySelectorAll('button[data-categoria]');
             botonesCategorias.forEach(boton => {
                 boton.addEventListener('click', (e) => {
                     categoriaActual = e.target.dataset.categoria;
-                    botonesCategorias.forEach(b => b.classList.remove('bg-brand'));
+                    botonesCategorias.forEach(b => {
+                        b.classList.remove('bg-brand');
+                        b.classList.add('bg-gray-200');
+                    });
+                    e.target.classList.remove('bg-gray-200');
                     e.target.classList.add('bg-brand');
                     paginaActual = 1;
                     cargarNoticias();
@@ -225,6 +299,27 @@
                 terminoBusqueda = e.target.value;
                 paginaActual = 1;
                 cargarNoticias();
+            });
+
+            // Abrir modal al hacer clic en "Leer más"
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('leer-mas')) {
+                    const id = parseInt(e.target.dataset.id);
+                    abrirModal(id);
+                }
+            });
+
+            // Cerrar modal
+            document.getElementById('modal-close').addEventListener('click', () => {
+                document.getElementById('modal').classList.add('hidden');
+                document.getElementById('modal').classList.remove('flex');
+            });
+
+            // Toggle menú móvil
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
         });
     </script>
