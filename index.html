@@ -6,6 +6,8 @@
     <title>ES.DECIRDIARIO - Noticias y Comunicación</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -52,13 +54,13 @@
     </div>
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="ES.DECIRDIARIO Logo" class="w-12 h-12 mr-4">
-                <h1 class="text-3xl font-bold">ES.DECIRDIARIO</h1>
+                <h1 class="text-2xl md:text-3xl font-bold">ES.DECIRDIARIO</h1>
             </div>
-            <nav class="hidden md:flex space-x-6" aria-label="Navegación principal">
+            <nav class="hidden lg:flex space-x-6" aria-label="Navegación principal">
                 <a href="#" class="hover:text-brand">Inicio</a>
                 <a href="#" class="hover:text-brand">Política</a>
                 <a href="#" class="hover:text-brand">Economía</a>
@@ -66,18 +68,18 @@
                 <a href="#" class="hover:text-brand">Cultura</a>
                 <a href="#" class="hover:text-brand">Deportes</a>
             </nav>
-            <div class="hidden md:flex space-x-4">
+            <div class="hidden lg:flex space-x-4">
                 <a href="#" aria-label="Facebook" class="text-gray-600 hover:text-brand"><i class="fab fa-facebook"></i></a>
                 <a href="#" aria-label="Twitter" class="text-gray-600 hover:text-brand"><i class="fab fa-twitter"></i></a>
                 <a href="#" aria-label="Instagram" class="text-gray-600 hover:text-brand"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="LinkedIn" class="text-gray-600 hover:text-brand"><i class="fab fa-linkedin"></i></a>
             </div>
-            <button class="md:hidden" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+            <button class="lg:hidden" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <nav id="mobile-menu" class="hidden bg-white shadow-md py-4">
+        <nav id="mobile-menu" class="hidden bg-white shadow-md py-4 lg:hidden">
             <div class="container mx-auto px-4 flex flex-col space-y-4">
                 <a href="#" class="hover:text-brand">Inicio</a>
                 <a href="#" class="hover:text-brand">Política</a>
@@ -99,11 +101,45 @@
         <!-- Noticia Principal -->
         <section class="mb-12">
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/1200x600.png?text=Noticia+Principal" alt="Noticia Principal" class="w-full h-96 object-cover">
-                <div class="p-6">
-                    <h2 class="text-3xl font-bold mb-4">Titular de la Noticia Principal</h2>
-                    <p class="text-gray-700 mb-4">Resumen de la noticia principal que captura la atención del lector y proporciona los detalles más importantes del evento o suceso destacado.</p>
-                    <a href="noticia-principal.html" class="bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition">Leer más</a>
+                <div class="md:flex">
+                    <div class="md:w-2/3">
+                        <img src="https://via.placeholder.com/1200x600.png?text=Noticia+Principal" alt="Noticia Principal" class="w-full h-64 md:h-full object-cover">
+                    </div>
+                    <div class="md:w-1/3 p-6">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-4">Titular de la Noticia Principal</h2>
+                        <p class="text-gray-700 mb-4">Resumen de la noticia principal que captura la atención del lector y proporciona los detalles más importantes del evento o suceso destacado.</p>
+                        <a href="noticia-principal.html" class="bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition inline-block">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Venta de Libro -->
+        <section class="mb-12 bg-white shadow-lg rounded-lg overflow-hidden">
+            <h2 class="text-3xl font-bold mb-6 p-6">Mi Libro</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-6">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/400x600.png?text=Libro+Portada" alt="Portada del libro" class="w-full h-auto">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/400x600.png?text=Libro+Contraportada" alt="Contraportada del libro" class="w-full h-auto">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://via.placeholder.com/400x600.png?text=Libro+Página+Ejemplo" alt="Página de ejemplo del libro" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-6">
+                    <h3 class="text-2xl font-bold mb-4">Título del Libro</h3>
+                    <p class="text-gray-700 mb-4">Descripción detallada del libro. Aquí puedes incluir un resumen del contenido, información sobre el autor, o cualquier otro detalle relevante que quieras compartir con tus potenciales lectores.</p>
+                    <p class="text-xl font-bold mb-4">Precio: $19.99</p>
+                    <div id="paypal-button-container"></div>
                 </div>
             </div>
         </section>
@@ -111,8 +147,8 @@
         <!-- Búsqueda y Categorías -->
         <section class="mb-8">
             <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                <input type="text" id="busqueda-input" placeholder="Buscar noticias..." class="w-full md:w-1/2 p-2 border border-gray-300 rounded mb-4 md:mb-0" aria-label="Buscar noticias">
-                <div class="flex flex-wrap gap-2">
+                <input type="text" id="busqueda-input" placeholder="Buscar noticias..." class="w-full md:w-1/2 p-2 border border-gray-300 rounded mb-4 md:mb-0" aria-label="Buscar  noticias">
+                <div class="flex flex-wrap gap-2 justify-center md:justify-end">
                     <button class="bg-brand px-4 py-2 rounded hover:bg-brand-dark transition" data-categoria="todas">Todas</button>
                     <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="politica">Política</button>
                     <button class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition" data-categoria="economia">Economía</button>
@@ -124,7 +160,7 @@
         </section>
 
         <!-- Noticias -->
-        <section id="noticias-container" class="mb-12">
+        <section id="noticias-container" class="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <!-- Las noticias se cargarán aquí dinámicamente -->
         </section>
 
@@ -142,7 +178,7 @@
                 <!-- Las publicaciones de Instagram se cargarán aquí dinámicamente -->
             </div>
             <div class="text-center mt-6">
-                <a  href="https://www.instagram.com/es.decirdiario" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline">
+                <a href="https://www.instagram.com/es.decirdiario" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline">
                     Ver más en Instagram
                 </a>
             </div>
@@ -160,7 +196,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <img src="https://via.placeholder.com/100x50.png?text=Logo" alt="ES.DECIRDIARIO Logo" class="mb-4">
                     <p class="text-sm">Otra forma de hacer periodismo</p>
@@ -225,6 +261,7 @@
     </a>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
     <script>
         // Datos de ejemplo para noticias
         const noticias = [
@@ -242,152 +279,170 @@
             { id: 12, titulo: "Descubrimiento arqueológico revela antigua civilización", categoria: "cultura", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+12", contenido: "Arqueólogos han descubierto las ruinas de una ciudad perdida en la península de Yucatán, que data de hace más de 3,000 años. Los hallazgos sugieren una civilización avanzada que precedió a los mayas y podrían reescribir la historia de Mesoamérica." },
             { id: 13, titulo: "Nueva política fiscal genera debate en el congreso", categoria: "politica", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+13", contenido: "El gobierno ha propuesto una reforma fiscal integral que incluye cambios en los impuestos corporativos y personales. La oposición argumenta que las medidas podrían frenar el crecimiento económico, mientras que los defensores afirman que es necesaria para reducir la desigualdad." },
             { id: 14, titulo: "Avance en la fusión nuclear promete energía limpia ilimitada", categoria: "tecnologia", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+14", contenido: "Científicos del Proyecto de Fusión Internacional han logrado mantener una reacción de fusión nuclear controlada durante 5 minutos, un hito significativo en la búsqueda de energía limpia e ilimitada. Este avance podría revolucionar la producción de energía en las próximas décadas." },
-            { id: 15, titulo: "Equipo local gana la liga después de 50 años", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+15", contenido: "El Club Deportivo Esperanza ha ganado la liga nacional por primera vez en 50 años, en una temporada llena de drama y emoción. La victoria ha desatado celebraciones masivas en la ciudad, con miles de aficionados llenando las calles." },
+            { id: 15, titulo: "Equipo local gana la liga nacional después de 50 años", categoria: "deportes", imagen: "https://via.placeholder.com/300x200.png?text=Noticia+15", contenido: "El Club Deportivo Esperanza ha ganado la liga nacional de fútbol por primera vez en 50 años, en una temporada llena de drama y emoción. La victoria ha desatado celebraciones masivas en la ciudad y ha sido descrita como un 'cuento de hadas del fútbol' por los comentaristas." }
         ];
 
-        let paginaActual = 1;
-        const noticiasPorPagina = 5;
-        let categoriaActual = 'todas';
-        let terminoBusqueda = '';
-
-        // Función para cargar noticias
-        function cargarNoticias() {
-            const container = document.getElementById('noticias-container');
-            container.innerHTML = '';
-
-            let noticiasFiltradas = noticias.filter(noticia => 
-                (categoriaActual === 'todas' || noticia.categoria === categoriaActual) &&
-                noticia.titulo.toLowerCase().includes(terminoBusqueda.toLowerCase())
-            );
-
-            const inicio = (paginaActual - 1) * noticiasPorPagina;
-            const fin = inicio + noticiasPorPagina;
-            const noticiasAMostrar = noticiasFiltradas.slice(inicio, fin);
-
-            noticiasAMostrar.forEach(noticia => {
-                const noticiaElement = document.createElement('article');
-                noticiaElement.className = 'bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 mb-6';
-                noticiaElement.innerHTML = `
-                    <img src="${noticia.imagen}" alt="${noticia.titulo}" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-xl mb-2">${noticia.titulo}</h3>
-                        <p class="text-sm text-gray-600 mb-2">${noticia.categoria}</p>
-                        <p class="text-sm text-gray-800 news-content">${noticia.contenido}</p>
-                        <a href="noticia.html?id=${noticia.id}" class="mt-4 inline-block bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition">Leer más</a>
-                    </div>
-                `;
-                container.appendChild(noticiaElement);
-            });
-
-            actualizarPaginacion(noticiasFiltradas.length);
-        }
-
-        // Función para actualizar la paginación
-        function actualizarPaginacion(totalNoticias) {
-            const totalPaginas = Math.ceil(totalNoticias / noticiasPorPagina);
-            document.getElementById('pagina-actual').textContent = `Página ${paginaActual} de ${totalPaginas}`;
-            document.getElementById('anterior').disabled = paginaActual === 1;
-            document.getElementById('siguiente').disabled = paginaActual === totalPaginas;
-        }
-
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            cargarNoticias();
-
-            // Botones de categoría
-            const botonesCategorias = document.querySelectorAll('button[data-categoria]');
-            botonesCategorias.forEach(boton => {
-                boton.addEventListener('click', (e) => {
-                    categoriaActual = e.target.dataset.categoria;
-                    botonesCategorias.forEach(b => {
-                        b.classList.remove('bg-brand');
-                        b.classList.add('bg-gray-200');
-                    });
-                    e.target.classList.remove('bg-gray-200');
-                    e.target.classList.add('bg-brand');
-                    paginaActual = 1;
-                    cargarNoticias();
-                });
-            });
-
-            // Paginación
-            document.getElementById('anterior').addEventListener('click', () => {
-                if (paginaActual > 1) {
-                    paginaActual--;
-                    cargarNoticias();
-                }
-            });
-
-            document.getElementById('siguiente').addEventListener('click', () => {
-                paginaActual++;
-                cargarNoticias();
-            });
-
-            // Búsqueda
-            const busquedaInput = document.getElementById('busqueda-input');
-            busquedaInput.addEventListener('input', (e) => {
-                terminoBusqueda = e.target.value;
-                paginaActual = 1;
-                cargarNoticias();
-            });
-
-            // Toggle menú móvil
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-            });
-
-            // Top Banner con noticias automáticas
-            const bannerElement = document.getElementById('top-banner');
-            const bannerText = bannerElement.querySelector('p');
-            const bannerLink = document.getElementById('banner-link');
-            const noticiasAleatorias = [...noticias].sort(() => 0.5 - Math.random()).slice(0, 5);
-            let index = 0;
-
-            function mostrarSiguienteNoticia() {
-                bannerElement.style.opacity = '0';
-                setTimeout(() => {
-                    const noticia = noticiasAleatorias[index];
-                    bannerText.textContent = noticia.titulo;
-                    bannerLink.href = `noticia.html?id=${noticia.id}`;
-                    bannerLink.classList.remove('hidden');
-                    bannerElement.style.opacity = '1';
-                    index = (index + 1) % noticiasAleatorias.length;
-                }, 500);
-            }
-
-            mostrarSiguienteNoticia();
-            setInterval(mostrarSiguienteNoticia, 5000);
-        });
-
-        // Aquí iría la lógica para cargar las publicaciones de Instagram usando la API de Instagram
-        // Por ahora, usaremos datos de ejemplo
+        // Datos de ejemplo para publicaciones de Instagram
         const instagramPosts = [
             { id: 1, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+1", caption: "Última noticia sobre ciencia" },
             { id: 2, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+2", caption: "Evento deportivo destacado" },
             { id: 3, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+3", caption: "Exposición de arte" },
             { id: 4, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+4", caption: "Tecnología innovadora" },
+            { id: 5, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+5", caption: "Entrevista política" },
+            { id: 6, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+6", caption: "Receta del día" },
+            { id: 7, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+7", caption: "Consejos de salud" },
+            { id: 8, imagen: "https://via.placeholder.com/300x300.png?text=Instagram+8", caption: "Viajes y aventuras" }
         ];
 
-        function cargarInstagramPosts() {
-            const container = document.getElementById('instagram-container');
+        // Variables globales
+        let currentPage = 1;
+        const itemsPerPage = 6;
+        let filteredNoticias = [...noticias];
+
+        // Función para cargar noticias
+        function loadNoticias() {
+            const container = document.getElementById('noticias-container');
             container.innerHTML = '';
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedNoticias = filteredNoticias.slice(start, end);
+
+            paginatedNoticias.forEach(noticia => {
+                const article = document.createElement('article');
+                article.className = 'bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105';
+                article.innerHTML = `
+                    <img src="${noticia.imagen}" alt="${noticia.titulo}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">${noticia.titulo}</h3>
+                        <p class="text-sm text-gray-600 mb-2">${noticia.categoria}</p>
+                        <p class="text-sm text-gray-800 line-clamp-3">${noticia.contenido}</p>
+                        <a href="noticia.html?id=${noticia.id}" class="mt-4 inline-block bg-brand text-black px-4 py-2 rounded hover:bg-brand-dark transition">Leer más</a>
+                    </div>
+                `;
+                container.appendChild(article);
+            });
+
+            updatePagination();
+        }
+
+        // Función para actualizar la paginación
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredNoticias.length / itemsPerPage);
+            document.getElementById('pagina-actual').textContent = `Página ${currentPage} de ${totalPages}`;
+            document.getElementById('anterior').disabled = currentPage === 1;
+            document.getElementById('siguiente').disabled = currentPage === totalPages;
+        }
+
+        // Función para cargar publicaciones de Instagram
+        function loadInstagramPosts() {
+            const container = document.getElementById('instagram-container');
             instagramPosts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.className = 'relative overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:scale-105';
-                postElement.innerHTML = `
+                const div = document.createElement('div');
+                div.className = 'relative overflow-hidden rounded-lg shadow-md transition-transform duration-300 hover:scale-105';
+                div.innerHTML = `
                     <img src="${post.imagen}" alt="${post.caption}" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
                         <p class="text-sm">${post.caption}</p>
                     </div>
                 `;
-                container.appendChild(postElement);
+                container.appendChild(div);
             });
         }
 
-        document.addEventListener('DOMContentLoaded', cargarInstagramPosts);
+        // Event listeners
+        document.getElementById('anterior').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                loadNoticias();
+            }
+        });
+
+        document.getElementById('siguiente').addEventListener('click', () => {
+            if (currentPage < Math.ceil(filteredNoticias.length / itemsPerPage)) {
+                currentPage++;
+                loadNoticias();
+            }
+        });
+
+        document.querySelectorAll('[data-categoria]').forEach(button => {
+            button.addEventListener('click', () => {
+                const categoria = button.dataset.categoria;
+                filteredNoticias = categoria === 'todas' ? [...noticias] : noticias.filter(noticia => noticia.categoria === categoria);
+                currentPage = 1;
+                loadNoticias();
+
+                // Actualizar estilos de los botones
+                document.querySelectorAll('[data-categoria]').forEach(btn => {
+                    btn.classList.remove('bg-brand', 'hover:bg-brand-dark');
+                    btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+                });
+                button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                button.classList.add('bg-brand', 'hover:bg-brand-dark');
+            });
+        });
+
+        document.getElementById('busqueda-input').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredNoticias = noticias.filter(noticia => 
+                noticia.titulo.toLowerCase().includes(searchTerm) || 
+                noticia.contenido.toLowerCase().includes(searchTerm)
+            );
+            currentPage = 1;
+            loadNoticias();
+        });
+
+        // Toggle del menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+        });
+
+        // Función para actualizar el banner superior
+        function updateTopBanner() {
+            const bannerText = document.querySelector('#top-banner p');
+            const bannerLink = document.getElementById('banner-link');
+            const randomNews = noticias[Math.floor(Math.random() * noticias.length)];
+            
+            bannerText.textContent = randomNews.titulo;
+            bannerLink.href = `noticia.html?id=${randomNews.id}`;
+            bannerLink.classList.remove('hidden');
+        }
+
+        // Inicialización
+        loadNoticias();
+        loadInstagramPosts();
+        updateTopBanner();
+
+        // Actualizar el banner cada 10 segundos
+        setInterval(updateTopBanner, 10000);
+
+        // Inicializar Swiper
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+        // Configurar PayPal
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '19.99'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Transacción completada por ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
     </script>
 </body>
 </html>
