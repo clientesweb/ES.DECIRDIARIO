@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - ES.DECIRDIARIO</title>
+    <meta name="description" content="Explora las últimas noticias y artículos de ES.DECIRDIARIO. Información actual, atemporal, atípica y positiva.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-gray-100 font-sans text-gray-900 leading-normal">
+    <header>
+        <!-- Mismo header que en index.html -->
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-primary">Noticias</h1>
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-primary">Categorías</h2>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="bg-white px-4 py-2 rounded-full shadow hover:bg-secondary transition duration-300">Actualidad</a>
+                <a href="#" class="bg-white px-4 py-2 rounded-full shadow hover:bg-secondary transition duration-300">Política</a>
+                <a href="#" class="bg-white px-4 py-2 rounded-full shadow hover:bg-secondary transition duration-300">Economía</a>
+                <a href="#" class="bg-white px-4 py-2 rounded-full shadow hover:bg-secondary transition duration-300">Tecnología</a>
+                <a href="#" class="bg-white px-4 py-2 rounded-full shadow hover:bg-secondary transition duration-300">Cultura</a>
+            </div>
+        </div>
+        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Las noticias se cargarán dinámicamente aquí -->
+        </div>
+        <button id="load-more" class="mt-8 bg-secondary text-primary px-6 py-2 rounded hover:bg-opacity-80 transition duration-300">Cargar más</button>
+    </main>
+
+    <footer>
+        <!-- Mismo footer que en index.html -->
+    </footer>
+
+    <script src="noticias.js"></script>
+</body>
+</html>

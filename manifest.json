@@ -1,0 +1,21 @@
+{
+  "name": "ES.DECIRDIARIO",
+  "short_name": "ES.DECIR",
+  "description": "Otra forma de hacer periodismo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFF00",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

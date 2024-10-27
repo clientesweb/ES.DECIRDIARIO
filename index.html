@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES.DECIRDIARIO - Otra forma de hacer periodismo</title>
+    <meta name="description" content="ES.DECIRDIARIO: Noticias actuales, atemporales, atípicas y positivas. Una nueva perspectiva en el periodismo.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFFF00">
+</head>
+<body class="bg-gray-100 font-sans text-gray-900 leading-normal">
+    <header class="bg-primary text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="logo.svg" alt="ES.DECIRDIARIO Logo" class="h-12 w-12 mr-2">
+                <span class="text-2xl font-bold">ES.DECIRDIARIO</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-secondary transition duration-300">Inicio</a>
+                <a href="noticias.html" class="hover:text-secondary transition duration-300">Noticias</a>
+                <a href="tienda.html" class="hover:text-secondary transition duration-300">Tienda</a>
+                <a href="sobre-mi.html" class="hover:text-secondary transition duration-300">Sobre Mí</a>
+                <a href="contacto.html" class="hover:text-secondary transition duration-300">Contacto</a>
+            </nav>
+            <div class="flex items-center">
+                <form id="search-form" class="mr-4">
+                    <input type="search" placeholder="Buscar..." class="px-4 py-2 rounded-full bg-white text-primary">
+                </form>
+                <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-primary text-white p-4 absolute top-20 left-0 right-0 z-40 shadow-md">
+        <nav class="flex flex-col space-y-4">
+            <a href="index.html" class="hover:text-secondary transition duration-300">Inicio</a>
+            <a href="noticias.html" class="hover:text-secondary transition duration-300">Noticias</a>
+            <a href="tienda.html" class="hover:text-secondary transition duration-300">Tienda</a>
+            <a href="sobre-mi.html" class="hover:text-secondary transition duration-300">Sobre Mí</a>
+            <a href="contacto.html" class="hover:text-secondary transition duration-300">Contacto</a>
+        </nav>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="featured-news" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-primary">Noticias Destacadas</h2>
+            <div class="relative overflow-hidden">
+                <div id="news-slider" class="flex transition-transform duration-300 ease-in-out">
+                    <!-- Las noticias destacadas se cargarán dinámicamente aquí -->
+                </div>
+                <button id="prev-slide" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r" aria-label="Noticia anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-slide" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l" aria-label="Siguiente noticia">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="ad-banner" class="mb-12 bg-secondary text-primary p-4 rounded-lg shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">¡Nuevo Libro: "Soy joven, no gilipollas"!</h3>
+                    <p class="mb-4">Descubre una perspectiva fresca sobre la juventud actual. Ya disponible en nuestra tienda.</p>
+                </div>
+                <a href="tienda.html" class="bg-primary text-white px-6 py-2 rounded hover:bg-opacity-90 transition duration-300">Comprar Ahora</a>
+            </div>
+        </section>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <section id="recent-news" class="w-full lg:w-2/3">
+                <h2 class="text-2xl font-bold mb-6 text-primary">Noticias Recientes</h2>
+                <div id="news-grid" class="grid gap-6 grid-cols-1 md:grid-cols-2">
+                    <!-- Las noticias recientes se cargarán dinámicamente aquí -->
+                </div>
+                <button id="load-more" class="mt-8 bg-secondary text-primary px-6 py-2 rounded hover:bg-opacity-80 transition duration-300">Cargar más</button>
+            </section>
+
+            <aside class="w-full lg:w-1/3">
+                <section id="instagram-feed" class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Instagram</h2>
+                    <div id="instagram-grid" class="grid grid-cols-3 gap-2">
+                        <!-- El feed de Instagram se cargará dinámicamente aquí -->
+                    </div>
+                </section>
+
+                <section id="popular-news">
+                    <h2 class="text-2xl font-bold mb-4 text-primary">Más Populares</h2>
+                    <ul id="popular-list" class="space-y-4">
+                        <!-- Las noticias populares se cargarán dinámicamente aquí -->
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white mt-12 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Sobre ES.DECIRDIARIO</h3>
+                    <p>Otra forma de hacer periodismo. Información actual, atemporal, atípica y positiva.</p>
+                </div>
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-secondary transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-secondary transition duration-300" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-secondary transition duration-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3">
+                    <h3 class="text-xl font-bold mb-4">Suscríbete</h3>
+                    <form id="subscribe-form" class="flex">
+                        <input type="email" placeholder="Tu email" class="p-2 rounded-l-lg w-full text-primary" required aria-label="Email para suscripción">
+                        <button type="submit" class="bg-secondary text-primary px-4 py-2 rounded-r-lg hover:bg-opacity-80 transition duration-300">Suscribir</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2023 ES.DECIRDIARIO. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

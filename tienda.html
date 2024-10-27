@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - ES.DECIRDIARIO</title>
+    <meta name="description" content="Adquiere el libro 'Soy joven, no gilipollas' y otros productos de ES.DECIRDIARIO.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=EUR"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900 leading-normal">
+    <header>
+        <!-- Mismo header que en index.html -->
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-primary">Tienda</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <img src="https://via.placeholder.com/300x400?text=Portada+del+Libro" alt="Portada del libro 'Soy joven, no gilipollas'" class="w-full h-auto mb-4">
+                <h2 class="text-2xl font-bold mb-2">Soy joven, no gilipollas</h2>
+                <p class="text-gray-600 mb-4">Descubre mi nuevo libro lleno de reflexiones y anécdotas sobre la juventud actual.</p>
+                <p class="text-xl font-bold mb-4">19.99€</p>
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Mismo footer que en index.html -->
+    </footer>
+
+    <script src="tienda.js"></script>
+</body>
+</html>
